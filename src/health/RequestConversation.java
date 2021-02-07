@@ -38,7 +38,7 @@ public class RequestConversation extends javax.swing.JFrame {
         userType = new_userType;
         try {
             Class.forName("org.sqlite.JDBC");
-            conn = DriverManager.getConnection("jdbc:sqlite:C:\\Users\\Andrea\\Documents\\NetBeansProjects\\health.sqlite");
+            conn = DriverManager.getConnection("jdbc:sqlite:db\\health");
             //JOptionPane.showMessageDialog (null, "Connected");
             Statement statement = conn.createStatement();
         }
