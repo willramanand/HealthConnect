@@ -31,6 +31,7 @@ public final class DoctorView extends javax.swing.JFrame {
      */
     public DoctorView(String doctor) {
         initComponents();
+        setComponentNames();
         try {
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection("jdbc:sqlite:db\\health");
@@ -421,6 +422,13 @@ public final class DoctorView extends javax.swing.JFrame {
                 new DoctorView(s.getUsername()).setVisible(true);
             }
         });
+    }
+
+    private void setComponentNames() {
+        logout.setName("logoutDoc");
+        inProgressButton.setName("inProg");
+        closeRequestButton.setName("closedReq");
+        newRequestButton.setName("newReq");
     }
 
     // Variables declaration - do not modify                     

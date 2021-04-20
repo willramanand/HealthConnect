@@ -26,6 +26,7 @@ public class NewJFrame extends javax.swing.JFrame {
      */
     public NewJFrame() {
         initComponents();
+        setComponentNames();
         try {
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection("jdbc:sqlite:db\\health");
@@ -47,7 +48,7 @@ public class NewJFrame extends javax.swing.JFrame {
     }
     
     public void setUsername(String username){
-        this.username = this.txt_username.getText();
+        this.username = username;
     }
 
     /**
@@ -283,6 +284,13 @@ public class NewJFrame extends javax.swing.JFrame {
                 new NewJFrame().setVisible(true);
             }
         });
+    }
+
+    void setComponentNames() {
+        txt_username.setName("username");
+        txt_password.setName("password");
+        LoginAsDoctor.setName("docLogin");
+        LoginAsPatient.setName("patLogin");
     }
 
     // Variables declaration - do not modify                     

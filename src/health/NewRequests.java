@@ -32,6 +32,7 @@ public class NewRequests extends javax.swing.JFrame {
      */
     public NewRequests(String new_userID) {
         initComponents();
+        setComponentNames();
         userID = new_userID;
         try {
             Class.forName("org.sqlite.JDBC");
@@ -249,6 +250,12 @@ public class NewRequests extends javax.swing.JFrame {
                 new NewRequests(v.getUsername()).setVisible(true);
             }
         });
+    }
+
+    void setComponentNames() {
+      createButton.setName("create");
+      CancelButton.setName("cancel");
+      jTextArea1.setName("insertReq");
     }
 
     // Variables declaration - do not modify                     
