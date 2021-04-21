@@ -35,6 +35,7 @@ public class RequestConversation extends javax.swing.JFrame {
      */
     public RequestConversation(int new_requestID, String new_userID, String new_userType) {
         initComponents();
+        setComponentNames();
         requestNumber = new_requestID;
         userID = new_userID;
         userType = new_userType;
@@ -355,6 +356,12 @@ public class RequestConversation extends javax.swing.JFrame {
                 new RequestConversation(d.getRequestID(), d.getUsername(), d.getUserType()).setVisible(true);
             }
         });
+    }
+
+    private void setComponentNames() {
+        backButton.setName("backButton");
+        closeButton.setName("closeReq");
+        addButton.setName("addToReq");
     }
 
     // Variables declaration - do not modify                     

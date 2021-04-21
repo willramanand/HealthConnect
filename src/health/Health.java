@@ -25,6 +25,7 @@ public class Health {
         @SuppressWarnings("UnusedAssignment")
         //test connection
         Connection conn = null;
+
         try {
             Class.forName("org.sqlite.JDBC");
             conn = DriverManager.getConnection("jdbc:sqlite:db\\health");
@@ -50,5 +51,7 @@ public class Health {
         catch(ClassNotFoundException | SQLException e){
             JOptionPane.showMessageDialog(null, e);
         }
+
     }
+
 }

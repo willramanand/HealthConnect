@@ -25,6 +25,7 @@ public class Profile extends javax.swing.JFrame {
      */
     public Profile(String patient) {
         initComponents();
+        setComponentNames();
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width/2 - getWidth()/2, 
@@ -174,6 +175,12 @@ public class Profile extends javax.swing.JFrame {
                 new Profile(s.getUsername()).setVisible(true);
             }
         });
+    }
+
+    private void setComponentNames() {
+        logout.setName("logoutProfile");
+        viewRequestButton.setName("viewReq");
+        makeRequestButton.setName("makeReq");
     }
 
     // Variables declaration - do not modify                     
