@@ -22,6 +22,14 @@ public class DoctorViewTests {
   }
 
   @Test
+  void negativeTestNewRequests() {
+    DoctorView dv = new DoctorView("nottestUser");
+    JButton newButton = (JButton) TestUtils.getChildNamed(dv, "newReq");
+
+    assertDoesNotThrow(() -> newButton.doClick());
+  }
+
+  @Test
   void testInProgRequests() {
     DoctorView dv = new DoctorView("testUser");
     JButton inProgButton = (JButton) TestUtils.getChildNamed(dv, "inProg");

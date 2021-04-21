@@ -17,16 +17,18 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 public final class DoctorView extends javax.swing.JFrame {
-    Connection conn=null;
-    ResultSet rs=null;
-    PreparedStatement pst=null;
-    int curRow=0;
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
+    int curRow = 0;
     String username, userType;
     DefaultListModel model = new DefaultListModel();
     int index;
     int requestID;
+
     /**
      * Creates new form DoctorView
+     *
      * @param doctor
      */
     public DoctorView(String doctor) {
@@ -37,8 +39,7 @@ public final class DoctorView extends javax.swing.JFrame {
             conn = DriverManager.getConnection("jdbc:sqlite:db\\health");
             //JOptionPane.showMessageDialog (null, "Connected");
             Statement statement = conn.createStatement();
-        }
-        catch(ClassNotFoundException | SQLException e){
+        } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
         setUsername(doctor);
@@ -46,27 +47,28 @@ public final class DoctorView extends javax.swing.JFrame {
         welcome.setText("Welcome Back, " + username + "!");
         requestsList.setVisible(false);
     }
-     public String getUsername(){
+
+    public String getUsername() {
         return this.username;
     }
-    
-    public void setUsername(String username){
+
+    public void setUsername(String username) {
         this.username = username;
     }
-    
-    public int getRequestID(){
+
+    public int getRequestID() {
         return this.requestID;
     }
-    
-    public void setRequestID(int requestID){
+
+    public void setRequestID(int requestID) {
         this.requestID = requestID;
     }
-    
-    public String getUserType(){
+
+    public String getUserType() {
         return this.userType;
     }
-    
-    public void setUserType(String userType){
+
+    public void setUserType(String userType) {
         this.userType = userType;
     }
 
@@ -99,9 +101,15 @@ public final class DoctorView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         requestsList.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
+            String[] strings = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5"};
+
+            public int getSize() {
+                return strings.length;
+            }
+
+            public Object getElementAt(int i) {
+                return strings[i];
+            }
         });
         requestsList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
@@ -158,242 +166,229 @@ public final class DoctorView extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSeparator1)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(viewedRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(closeRequestButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(inProgressButton, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-                                    .addComponent(newRequestButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(0, 34, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(1, 1, 1))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(201, 201, 201)
-                .addComponent(openSelectedButton, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(289, 658, Short.MAX_VALUE)
-                .addComponent(logout)
-                .addGap(31, 31, 31))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jSeparator1)
+                                                .addContainerGap())
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(viewedRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(39, 39, 39)
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                        .addComponent(closeRequestButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                        .addComponent(inProgressButton, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                                                                        .addComponent(newRequestButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                                .addGap(0, 34, Short.MAX_VALUE))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(welcome, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(1, 1, 1))))
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(201, 201, 201)
+                                .addComponent(openSelectedButton, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(289, 658, Short.MAX_VALUE)
+                                .addComponent(logout)
+                                .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(welcome))
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(logout)
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(viewedRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(newRequestButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(79, 79, 79)
-                        .addComponent(inProgressButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(74, 74, 74)
-                        .addComponent(closeRequestButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(openSelectedButton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addContainerGap()
+                                                .addComponent(welcome))
+                                        .addComponent(jLabel6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(logout)
+                                .addGap(18, 18, 18)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(viewedRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(newRequestButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(79, 79, 79)
+                                                .addComponent(inProgressButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(74, 74, 74)
+                                                .addComponent(closeRequestButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(openSelectedButton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>                        
 
-    private void newRequestButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    private void newRequestButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         viewedRequests.setText("New Requests");
         requestsList.setVisible(true);
         String element;
-        String sql ="select * from Request where Status=?";
+        String sql = "select * from Request where Status=?";
         model.removeAllElements();
         element = "RID        Date                                        Patient Username";
         model.addElement(element);
-       try{
-           pst=conn.prepareStatement(sql);
-           pst.setString(1, "New");
-           rs = pst.executeQuery();
-           if(rs.next()){
-               //JOptionPane.showMessageDialog(null, "Username and Password is correct");
-               element = rs.getString("RID") + "        " + rs.getString("Date") + "           " + rs.getString("PUsername");
-               model.addElement(element);
-               while (rs.next()){
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, "New");
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                //JOptionPane.showMessageDialog(null, "Username and Password is correct");
                 element = rs.getString("RID") + "        " + rs.getString("Date") + "           " + rs.getString("PUsername");
                 model.addElement(element);
-           }
-           requestsList.setModel(model);
-           }
-           else{
-               JOptionPane.showMessageDialog(null, "No new requests created.");
-               
-           }
-       }
-       
-       catch(SQLException | HeadlessException e){
-           JOptionPane.showMessageDialog(null, e);}finally{
-            try{
-                rs.close();
-                    pst.close();
+                while (rs.next()) {
+                    element = rs.getString("RID") + "        " + rs.getString("Date") + "           " + rs.getString("PUsername");
+                    model.addElement(element);
+                }
+                requestsList.setModel(model);
+            } else {
+                JOptionPane.showMessageDialog(null, "No new requests created.");
+
             }
-            catch(SQLException e){
+        } catch (SQLException | HeadlessException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
+                rs.close();
+                pst.close();
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         }
-    }                                                
+    }
 
-    private void inProgressButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    private void inProgressButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         viewedRequests.setText("In Progress Requests");
         requestsList.setVisible(true);
         String element;
-        String sql ="select distinct Request.RID, Date, PUsername from Request, Message where Request.RID = Message.RID and Request.Status=? and Message.DUsername=?";
+        String sql = "select distinct Request.RID, Date, PUsername from Request, Message where Request.RID = Message.RID and Request.Status=? and Message.DUsername=?";
         model.removeAllElements();
         element = "RID        Date                                        Patient Username";
         model.addElement(element);
-       try{
-           pst=conn.prepareStatement(sql);
-           pst.setString(1, "In Progress");
-           pst.setString(2, username);
-           rs = pst.executeQuery();
-           if(rs.next()){
-               //JOptionPane.showMessageDialog(null, "Username and Password is correct");
-               element = rs.getString("RID") + "        " + rs.getString("Date") + "           " + rs.getString("PUsername");
-               model.addElement(element);
-               while (rs.next()){
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, "In Progress");
+            pst.setString(2, username);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                //JOptionPane.showMessageDialog(null, "Username and Password is correct");
                 element = rs.getString("RID") + "        " + rs.getString("Date") + "           " + rs.getString("PUsername");
                 model.addElement(element);
-           }
-           requestsList.setModel(model);
-           }
-           else{
-               JOptionPane.showMessageDialog(null, "No requests are in progress");
-               
-           }
-       }
-       
-       catch(SQLException | HeadlessException e){
-           JOptionPane.showMessageDialog(null, e);}finally{
-            try{
-                rs.close();
-                    pst.close();
+                while (rs.next()) {
+                    element = rs.getString("RID") + "        " + rs.getString("Date") + "           " + rs.getString("PUsername");
+                    model.addElement(element);
+                }
+                requestsList.setModel(model);
+            } else {
+                JOptionPane.showMessageDialog(null, "No requests are in progress");
+
             }
-            catch(SQLException e){
+        } catch (SQLException | HeadlessException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
+                rs.close();
+                pst.close();
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         }
-    }                                                
+    }
 
-    private void openSelectedButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+    private void openSelectedButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        if(requestsList.getSelectedIndex() != -1)
-        {
-        String temp_requestID = requestsList.getSelectedValue().toString();
-        temp_requestID = temp_requestID.substring(0,3);
-        requestID = Integer.parseInt(temp_requestID);
-        setRequestID(requestID);
-            try{
+        if (requestsList.getSelectedIndex() != -1) {
+            String temp_requestID = requestsList.getSelectedValue().toString();
+            temp_requestID = temp_requestID.substring(0, 3);
+            requestID = Integer.parseInt(temp_requestID);
+            setRequestID(requestID);
+            try {
                 rs.close();
-                    pst.close();
-            }
-            catch(SQLException e){
+                pst.close();
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
-        RequestConversation r = new RequestConversation(requestID, username, userType);
-        dispose();
-        r.setVisible(true);
-        }
-        else
+            RequestConversation r = new RequestConversation(requestID, username, userType);
+            dispose();
+            r.setVisible(true);
+        } else
             JOptionPane.showMessageDialog(null, "Please select a request");
-    }                                                  
+    }
 
-    private void closeRequestButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+    private void closeRequestButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         viewedRequests.setText("Closed Requests");
         requestsList.setVisible(true);
         String element;
-        String sql ="select Distinct Request.RID, Date, PUsername from Request, Message where Request.RID = Message.RID and Request.Status=? and Message.DUsername=?";
-                model.removeAllElements();
-                element = "RID        Date                                        Patient Username";
+        String sql = "select Distinct Request.RID, Date, PUsername from Request, Message where Request.RID = Message.RID and Request.Status=? and Message.DUsername=?";
+        model.removeAllElements();
+        element = "RID        Date                                        Patient Username";
         model.addElement(element);
-       try{
-           pst=conn.prepareStatement(sql);
-           pst.setString(1, "Closed");
-           pst.setString(2, username);
-           rs = pst.executeQuery();
-           if(rs.next()){
-               //JOptionPane.showMessageDialog(null, "Username and Password is correct");
-               element = rs.getString("RID") + "        " + rs.getString("Date") + "           " + rs.getString("PUsername");
-               model.addElement(element);
-               while (rs.next()){
-               element = rs.getString("RID") + "        " + rs.getString("Date") + "           " + rs.getString("PUsername");
-               model.addElement(element);
-           }
-           requestsList.setModel(model);
-           }
-           else{
-               JOptionPane.showMessageDialog(null, "No requests have been closed.");
-               
-           }
-       }
-       
-       catch(SQLException | HeadlessException e){
-           JOptionPane.showMessageDialog(null, e);}finally{
-            try{
-                rs.close();
-                    pst.close();
+        try {
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, "Closed");
+            pst.setString(2, username);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                //JOptionPane.showMessageDialog(null, "Username and Password is correct");
+                element = rs.getString("RID") + "        " + rs.getString("Date") + "           " + rs.getString("PUsername");
+                model.addElement(element);
+                while (rs.next()) {
+                    element = rs.getString("RID") + "        " + rs.getString("Date") + "           " + rs.getString("PUsername");
+                    model.addElement(element);
+                }
+                requestsList.setModel(model);
+            } else {
+                JOptionPane.showMessageDialog(null, "No requests have been closed.");
+
             }
-            catch(SQLException e){
+        } catch (SQLException | HeadlessException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } finally {
+            try {
+                rs.close();
+                pst.close();
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         }
-    }                                                  
+    }
 
-    private void requestsListValueChanged(javax.swing.event.ListSelectionEvent evt) {                                          
+    private void requestsListValueChanged(javax.swing.event.ListSelectionEvent evt) {
         // TODO add your handling code here:
-        if (requestsList.getSelectedIndex() == -1){
+        if (requestsList.getSelectedIndex() == -1) {
             //Nothing was selected.  Do nothing
-        }
-        else
+        } else
             index = requestsList.getSelectedIndex();
-    }                                         
+    }
 
-    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {                                       
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-            try{
-                rs.close();
-                    pst.close();
-            }
-            catch(SQLException e){
-                JOptionPane.showMessageDialog(null, e);
-            }
+        try {
+            rs.close();
+            pst.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
         int pane = JOptionPane.showConfirmDialog(null, "Are you sure you want to logout?", "Logout", JOptionPane.YES_NO_OPTION);
-        if(pane==0){
-        dispose();
-        NewJFrame n = new NewJFrame();
-        n.setVisible(true);}
-    }                                      
-       
+        if (pane == 0) {
+            dispose();
+            NewJFrame n = new NewJFrame();
+            n.setVisible(true);
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -401,7 +396,7 @@ public final class DoctorView extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

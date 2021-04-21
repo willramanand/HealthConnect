@@ -21,13 +21,14 @@ public class NewRequests extends javax.swing.JFrame {
     int requestNumber;
     String userID;
     String userType;
-    Connection conn=null;
-    ResultSet rs=null;
-    PreparedStatement pst=null;
+    Connection conn = null;
+    ResultSet rs = null;
+    PreparedStatement pst = null;
     int count = 100;
-    
+
     /**
      * Creates new form NewRequests
+     *
      * @param new_userID
      */
     public NewRequests(String new_userID) {
@@ -39,27 +40,25 @@ public class NewRequests extends javax.swing.JFrame {
             conn = DriverManager.getConnection("jdbc:sqlite:db\\health");
             //JOptionPane.showMessageDialog (null, "Connected");
             Statement statement = conn.createStatement();
-            String sql ="select RID from Request";
+            String sql = "select RID from Request";
             rs = statement.executeQuery(sql);
-            while(rs.next())
+            while (rs.next())
                 count++;
-        }
-        catch(ClassNotFoundException | SQLException e){
+        } catch (ClassNotFoundException | SQLException e) {
             JOptionPane.showMessageDialog(null, e);
-        }finally{
-            try{
+        } finally {
+            try {
                 rs.close();
-            }
-            catch(SQLException e){
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
             }
         }
-        
-        RequestID.setText("RequestID: "+ count);
-        PatientID.setText("PatientID: "+ userID);
+
+        RequestID.setText("RequestID: " + count);
+        PatientID.setText("PatientID: " + userID);
         jTextArea1.setLineWrap(true);
         jTextArea1.setWrapStyleWord(true);
-   
+
     }
 
     /**
@@ -120,106 +119,104 @@ public class NewRequests extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(RequestID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(PatientID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(CancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(createButton))
-                        .addContainerGap(56, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(41, 41, 41)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(RequestID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(PatientID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addContainerGap())
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(CancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(createButton))
+                                                .addContainerGap(56, Short.MAX_VALUE))))
+                        .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 633, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(RequestID, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(PatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(130, 130, 130)
-                .addComponent(createButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(CancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                .addGap(173, 173, 173))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                                .addGap(63, 63, 63)
+                                .addComponent(RequestID, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(PatientID, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(130, 130, 130)
+                                .addComponent(createButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(40, 40, 40)
+                                .addComponent(CancelButton, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                                .addGap(173, 173, 173))
+                        .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(Title, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel7))
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>                        
 
-    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
+    private void createButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         int pane = JOptionPane.showConfirmDialog(null, "Are you sure you want to create the request?", "Create Request", JOptionPane.YES_NO_OPTION);
-        if(pane==0){
-        String sql ="insert into Message (RID, DUsername, TimeStamp, Message) values (?, ?, ?, ?)";
-        
-        try{
-           pst=conn.prepareStatement(sql);
-           String temp = Integer.toString(count);
-           pst.setString(1, temp);
-           pst.setString(2, null);
-           Date date = new Date();
-           String timestamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(date);
-           pst.setString(3, timestamp);
-           StringBuilder stringBuilder = new StringBuilder();
-           stringBuilder.append("\n");
-           stringBuilder.append(jTextArea1.getText());
-           stringBuilder.append("\n Added by ").append("Patient").append(" ").append(userID);
-           String finalString = stringBuilder.toString();
-           pst.setString(4, finalString);
-           pst.execute();
-           JOptionPane.showMessageDialog(null, "Message created");
-           sql = "insert into Request (RID, PUsername, Date, Status) values (?, ?, ?, ?)";
-           pst=conn.prepareStatement(sql);
-           pst.setString(1, temp);
-           pst.setString(2, userID);
-           pst.setString(3, timestamp);
-           pst.setString(4, "New");
-           pst.execute();
-           }
-       
-       catch(SQLException | HeadlessException e){
-           JOptionPane.showMessageDialog(null, e);}finally{
-            try{
-                rs.close();
-                    pst.close();
-            }
-            catch(SQLException e){
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
-        PatientView j = new PatientView(userID);
-        j.setVisible(true);
-        dispose();
-        }
-    }                                            
+        if (pane == 0) {
+            String sql = "insert into Message (RID, DUsername, TimeStamp, Message) values (?, ?, ?, ?)";
 
-    private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {                                             
+            try {
+                pst = conn.prepareStatement(sql);
+                String temp = Integer.toString(count);
+                pst.setString(1, temp);
+                pst.setString(2, null);
+                Date date = new Date();
+                String timestamp = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss").format(date);
+                pst.setString(3, timestamp);
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.append("\n");
+                stringBuilder.append(jTextArea1.getText());
+                stringBuilder.append("\n Added by ").append("Patient").append(" ").append(userID);
+                String finalString = stringBuilder.toString();
+                pst.setString(4, finalString);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Message created");
+                sql = "insert into Request (RID, PUsername, Date, Status) values (?, ?, ?, ?)";
+                pst = conn.prepareStatement(sql);
+                pst.setString(1, temp);
+                pst.setString(2, userID);
+                pst.setString(3, timestamp);
+                pst.setString(4, "New");
+                pst.execute();
+            } catch (SQLException | HeadlessException e) {
+                JOptionPane.showMessageDialog(null, e);
+            } finally {
+                try {
+                    rs.close();
+                    pst.close();
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+            }
+            PatientView j = new PatientView(userID);
+            j.setVisible(true);
+            dispose();
+        }
+    }
+
+    private void CancelButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         Profile p = new Profile(userID);
         p.setVisible(true);
         dispose();
-    }                                            
+    }
 
     /**
      * @param args the command line arguments
@@ -228,7 +225,7 @@ public class NewRequests extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -253,9 +250,9 @@ public class NewRequests extends javax.swing.JFrame {
     }
 
     void setComponentNames() {
-      createButton.setName("create");
-      CancelButton.setName("cancel");
-      jTextArea1.setName("insertReq");
+        createButton.setName("create");
+        CancelButton.setName("cancel");
+        jTextArea1.setName("insertReq");
     }
 
     // Variables declaration - do not modify                     
