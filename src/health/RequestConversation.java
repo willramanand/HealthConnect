@@ -72,10 +72,9 @@ public class RequestConversation extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "No message added");
             }
             if ("Doctor".equals(userType)) {
-                sql = "update Message set DUsername=? where RID =?";
+                sql = "update Message set DUsername=? where RID =" + temp;
                 pst = conn.prepareStatement(sql);
                 pst.setString(1, userID);
-                pst.setString(2, temp);
                 pst.execute();
             }
 

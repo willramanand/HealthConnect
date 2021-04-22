@@ -31,4 +31,28 @@ public class RequestConversationTests {
 
     assertDoesNotThrow(() -> closeButton.doClick());
   }
+
+  @Test
+  void testDocAddToRequests() {
+    RequestConversation reqv = new RequestConversation(1, "", "Doctor");
+    JButton addButton = (JButton) TestUtils.getChildNamed(reqv, "addToReq");
+
+    assertDoesNotThrow(() -> addButton.doClick());
+  }
+
+  @Test
+  void testDocBackButton() {
+    RequestConversation reqv = new RequestConversation(1,"","Doctor");
+    JButton backButton = (JButton) TestUtils.getChildNamed(reqv, "backButton");
+
+    assertDoesNotThrow(() -> backButton.doClick());
+  }
+
+  @Test
+  void testDocClosedRequests() {
+    RequestConversation reqv = new RequestConversation(1,"","Doctor");
+    JButton closeButton = (JButton) TestUtils.getChildNamed(reqv, "closeReq");
+
+    assertDoesNotThrow(() -> closeButton.doClick());
+  }
 }
