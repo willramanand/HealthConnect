@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 public class RequestConversationTests {
 
 
+  // test adding request to button
   @Test
   void testAddToRequests() {
     RequestConversation reqv = new RequestConversation(1, "", "");
@@ -16,6 +17,7 @@ public class RequestConversationTests {
     assertDoesNotThrow(() -> addButton.doClick());
   }
 
+  // test back button
   @Test
   void testBackButton() {
     RequestConversation reqv = new RequestConversation(1,"","");
@@ -24,6 +26,7 @@ public class RequestConversationTests {
     assertDoesNotThrow(() -> backButton.doClick());
   }
 
+  // test closed request button
   @Test
   void testClosedRequests() {
     RequestConversation reqv = new RequestConversation(1,"","");
@@ -32,6 +35,7 @@ public class RequestConversationTests {
     assertDoesNotThrow(() -> closeButton.doClick());
   }
 
+  // test doctor add request button
   @Test
   void testDocAddToRequests() {
     RequestConversation reqv = new RequestConversation(1, "", "Doctor");
@@ -40,6 +44,7 @@ public class RequestConversationTests {
     assertDoesNotThrow(() -> addButton.doClick());
   }
 
+  // test doctor back button
   @Test
   void testDocBackButton() {
     RequestConversation reqv = new RequestConversation(1,"","Doctor");
@@ -48,6 +53,7 @@ public class RequestConversationTests {
     assertDoesNotThrow(() -> backButton.doClick());
   }
 
+  // test doctor close button.
   @Test
   void testDocClosedRequests() {
     RequestConversation reqv = new RequestConversation(1,"","Doctor");

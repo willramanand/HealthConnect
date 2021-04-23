@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 public class ProfileTests {
 
+  // test for new profile creation request
   @Test
   void testNewProfileRequests() {
     Profile pr = new Profile("testUser");
@@ -15,6 +16,7 @@ public class ProfileTests {
     assertDoesNotThrow(() -> newButton.doClick());
   }
 
+  // test for view profile button request
   @Test
   void testViewProfileRequests() {
     Profile pr = new Profile("testUser");
@@ -23,6 +25,7 @@ public class ProfileTests {
     assertDoesNotThrow(() -> closedButton.doClick());
   }
 
+  // test logout button request
   @Test
   void testLogoutProfile() {
     Profile pr = new Profile("testUser");

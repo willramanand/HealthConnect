@@ -170,6 +170,7 @@ public class NewJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
+    // Login as patient action
     private void LoginAsPatientActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // TODO add your handling code here:
        String sql ="select * from Patient where username=? and password=?";
@@ -210,6 +211,7 @@ public class NewJFrame extends javax.swing.JFrame {
        
     }                                              
 
+    // Login as doctor action
     private void LoginAsDoctorActionPerformed(java.awt.event.ActionEvent evt) {                                              
         // TODO add your handling code here:
        String sql ="select * from Doctor where username=? and password=?";
@@ -286,6 +288,7 @@ public class NewJFrame extends javax.swing.JFrame {
         });
     }
 
+    // sets components for TestUtils class.
     void setComponentNames() {
         txt_username.setName("username");
         txt_password.setName("password");

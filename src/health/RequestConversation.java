@@ -218,6 +218,7 @@ public class RequestConversation extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
+    // add request button action
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         int pane = JOptionPane.showConfirmDialog(null, "Are you sure you want to add your message to the request?", "Add To Request", JOptionPane.YES_NO_OPTION);
@@ -269,6 +270,7 @@ public class RequestConversation extends javax.swing.JFrame {
 
     }
 
+    // close request button action
     private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         int pane = JOptionPane.showConfirmDialog(null, "Are you sure you want to close the request?", "Close Request", JOptionPane.YES_NO_OPTION);
@@ -305,6 +307,7 @@ public class RequestConversation extends javax.swing.JFrame {
         }
     }
 
+    // back button action
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         try {
@@ -357,6 +360,7 @@ public class RequestConversation extends javax.swing.JFrame {
         });
     }
 
+    // sets components for TestUtils class.
     private void setComponentNames() {
         backButton.setName("backButton");
         closeButton.setName("closeReq");

@@ -1,5 +1,8 @@
 import health.DoctorView;
-import javax.swing.JButton;
+
+import javax.print.Doc;
+import javax.swing.*;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,6 +16,7 @@ public class DoctorViewTests {
     assertEquals("Doctor", dv.getUserType());
   }
 
+  // tests that the new request button
   @Test
   void testNewRequests() {
     DoctorView dv = new DoctorView("testUser");
@@ -21,6 +25,7 @@ public class DoctorViewTests {
     assertDoesNotThrow(() -> newButton.doClick());
   }
 
+  // tests for the negative new requests
   @Test
   void negativeTestNewRequests() {
     DoctorView dv = new DoctorView("nottestUser");
@@ -29,6 +34,7 @@ public class DoctorViewTests {
     assertDoesNotThrow(() -> newButton.doClick());
   }
 
+  // test for the in progress button
   @Test
   void testInProgRequests() {
     DoctorView dv = new DoctorView("testUser");
@@ -37,6 +43,7 @@ public class DoctorViewTests {
     assertDoesNotThrow(() -> inProgButton.doClick());
   }
 
+  // test for the closed button
   @Test
   void testClosedRequests() {
     DoctorView dv = new DoctorView("testUser");
@@ -45,6 +52,7 @@ public class DoctorViewTests {
     assertDoesNotThrow(() -> closedButton.doClick());
   }
 
+  // test for the logout doctor button
   @Test
   void testLogoutDoctor() {
     DoctorView dv = new DoctorView("testUser");
@@ -52,4 +60,20 @@ public class DoctorViewTests {
 
     assertDoesNotThrow(() -> logoutButton.doClick());
   }
+
+
+  // test for for branch list value selection.
+  @Test
+  void otherRequestedListValue(){
+    DoctorView dv = new DoctorView("testUser");
+    int expResult = -1;
+
+    JList requests = (JList) TestUtils.getChildNamed(dv, "requestList");
+
+    requests.setSelectedIndex(-1);
+
+    assertEquals(expResult, requests.getSelectedIndex());
+
+  }
+
 }

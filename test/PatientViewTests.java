@@ -3,11 +3,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 import health.PatientView;
-import javax.swing.JButton;
+
+import javax.swing.*;
+
 import org.junit.jupiter.api.Test;
 
 public class PatientViewTests {
 
+  // test for doctor view
   @Test
   void testDoctorView() {
     PatientView pv = new PatientView("testUser");
@@ -16,6 +19,7 @@ public class PatientViewTests {
     assertEquals("Patient", pv.getUserType());
   }
 
+  // test for new request button
   @Test
   void testNewRequests() {
     PatientView pv = new PatientView("testUser");
@@ -24,6 +28,7 @@ public class PatientViewTests {
     assertDoesNotThrow(() -> newButton.doClick());
   }
 
+  // test for in progress button
   @Test
   void testInProgRequests() {
     PatientView pv = new PatientView("testUser");
@@ -32,6 +37,7 @@ public class PatientViewTests {
     assertDoesNotThrow(() -> inProgButton.doClick());
   }
 
+  // test for closed request button
   @Test
   void testClosedRequests() {
     PatientView pv = new PatientView("testUser");
@@ -40,6 +46,7 @@ public class PatientViewTests {
     assertDoesNotThrow(() -> closedButton.doClick());
   }
 
+  // test for back button
   @Test
   void testBackButton() {
     PatientView pv = new PatientView("testUser");

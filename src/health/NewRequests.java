@@ -249,6 +249,7 @@ public class NewRequests extends javax.swing.JFrame {
         });
     }
 
+    // sets components for TestUtils class.
     void setComponentNames() {
         createButton.setName("create");
         CancelButton.setName("cancel");

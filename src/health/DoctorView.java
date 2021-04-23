@@ -365,6 +365,7 @@ public final class DoctorView extends javax.swing.JFrame {
         }
     }
 
+    // Checks what request is selected
     private void requestsListValueChanged(javax.swing.event.ListSelectionEvent evt) {
         // TODO add your handling code here:
         if (requestsList.getSelectedIndex() == -1) {
@@ -373,6 +374,7 @@ public final class DoctorView extends javax.swing.JFrame {
             index = requestsList.getSelectedIndex();
     }
 
+    // Logout button
     private void logoutActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         try {
@@ -419,11 +421,13 @@ public final class DoctorView extends javax.swing.JFrame {
         });
     }
 
+    // sets components for TestUtils class.
     private void setComponentNames() {
         logout.setName("logoutDoc");
         inProgressButton.setName("inProg");
         closeRequestButton.setName("closedReq");
         newRequestButton.setName("newReq");
+        requestsList.setName("requestList");
     }
 
     // Variables declaration - do not modify                     

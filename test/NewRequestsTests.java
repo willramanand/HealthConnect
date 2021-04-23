@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class NewRequestsTests {
 
+  // test for successful creation of request
   @Test
   void successCreate() {
     NewRequests nr = new NewRequests("Bob_Guy");
@@ -16,6 +17,7 @@ public class NewRequestsTests {
     assertDoesNotThrow(() -> createButton.doClick());
   }
 
+  // test for successful cancel request
   @Test
   void successCancel() {
     NewRequests nr = new NewRequests("Bob_Guy");
